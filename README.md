@@ -61,7 +61,7 @@ Necesita tener este repositorio, es simple, ejecute los comandos a continuación
 > git clone https://github.com/Samu330/Sm330-botwa
 > cd Sm330-botwa
 > npm i
-> npm install gify-cli gify
+> npm install gify-cli
 ```
 
 ### Iniciar
