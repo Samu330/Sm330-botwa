@@ -937,266 +937,18 @@ if (isMedia) {
                 .catch(() => kill.sendText(from, 'An error occured!'))
             break
 
-        case 'tts': 
-            if (args.length == 1) return kill.reply(from, 'Porfavor defina un idioma y una frase.')
-            const ttsId = require('node-gtts')('id')
-            const ttsEn = require('node-gtts')('en')
-			const ttsJp = require('node-gtts')('ja')
-            const ttsAr = require('node-gtts')('ar')
-            const ttsAf = require('node-gtts')('af')
-            const ttsSq = require('node-gtts')('sq')
-			const ttsHy = require('node-gtts')('hy')
-            const ttsCa = require('node-gtts')('ca')
-			const ttsZh = require('node-gtts')('zh')
-			const ttsCn = require('node-gtts')('zh-cn')
-			const ttsTw = require('node-gtts')('zh-tw')
-			const ttsYu = require('node-gtts')('zh-yue')
-			const ttsHr = require('node-gtts')('hr')
-			const ttsCs = require('node-gtts')('cs')
-            const ttsDa = require('node-gtts')('da')
-            const ttsNl = require('node-gtts')('nl')
-			const ttsAu = require('node-gtts')('en-au')
-            const ttsUk = require('node-gtts')('en-uk')
-			const ttsUs = require('node-gtts')('en-us')
-			const ttsEo = require('node-gtts')('eo')
-			const ttsFi = require('node-gtts')('fi')
-			const ttsFr = require('node-gtts')('fr')
-			const ttsEl = require('node-gtts')('el')
-			const ttsHt = require('node-gtts')('ht')
-            const ttsHi = require('node-gtts')('hi')
-            const ttsHu = require('node-gtts')('hu')
-			const ttsIs = require('node-gtts')('is')
-            const ttsIt = require('node-gtts')('it')
-            const ttsKo = require('node-gtts')('ko')
-            const ttsLa = require('node-gtts')('la')
-			const ttsLv = require('node-gtts')('lv')
-            const ttsMk = require('node-gtts')('mk')
-			const ttsNo = require('node-gtts')('no')
-			const ttsPl = require('node-gtts')('pl')
-			const ttsRo = require('node-gtts')('ro')
-			const ttsSr = require('node-gtts')('sr')
-			const ttsSk = require('node-gtts')('sk')
-			const ttsEs = require('node-gtts')('es')
-            const ttsSp = require('node-gtts')('es-es')
-            const ttsSu = require('node-gtts')('es-us')
-			const ttsSw = require('node-gtts')('sw')
-            const ttsSv = require('node-gtts')('sv')
-			const ttsTa = require('node-gtts')('ta')
-			const ttsTh = require('node-gtts')('th')
-			const ttsTr = require('node-gtts')('tr')
-			const ttsVi = require('node-gtts')('vi')
-			const ttsCy = require('node-gtts')('cy')
-            const ttsDe = require('node-gtts')('de')
-            const ttsBr = require('node-gtts')('pt-br')
-			const ttsPt = require('node-gtts')('pt')
-            const ttsRu = require('node-gtts')('ru')
+        case 'tts':
+            if (args.length == 0) return kill.reply(from, `Digo tus palabras via voz, usa /tts idioma texto, para ver los diomas con /lang`)
+            const ttsGB = require('node-gtts')(args[0])
             const dataText = body.slice(8)
-            if (dataText === '') return kill.reply(from, 'Creo que se te olvido colocar la frase.', id)
-            if (dataText.length > 500) return kill.reply(from, 'Disculpa, el limite es de 50 letras...', id)
-            var dataBhs = body.slice(5, 7)
-			if (dataBhs == 'id') {
-                ttsId.save('./lib/media/tts/resId.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resId.mp3', id)
-                })
-            } else if (dataBhs == 'en') {
-                ttsEn.save('./lib/media/tts/resEn.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resEn.mp3', id)
-                })
-            } else if (dataBhs == 'jp') {
-                ttsJp.save('./lib/media/tts/resJp.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resJp.mp3', id)
-                })
-            } else if (dataBhs == 'de') {
-                ttsDe.save('./lib/media/tts/resDe.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resDe.mp3', id)
-                })
-            } else if (dataBhs == 'br') {
-                ttsBr.save('./lib/media/tts/resBr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resBr.mp3', id)
-                })
-            } else if (dataBhs == 'ru') {
-                ttsRu.save('./lib/media/tts/resRu.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resRu.mp3', id)
-                })
-			} else if (dataBhs == 'ar') {
-                ttsAr.save('./lib/media/tts/resAr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resAr.mp3', id)
-                })
-            } else if (dataBhs == 'pt') {
-                ttsPt.save('./lib/media/tts/resPt.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resPt.mp3', id)
-                })
-            } else if (dataBhs == 'af') {
-                ttsAf.save('./lib/media/tts/resAf.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resAf.mp3', id)
-                })
-            } else if (dataBhs == 'sq') {
-                ttsSq.save('./lib/media/tts/resSq.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSq.mp3', id)
-                })
-            } else if (dataBhs == 'hy') {
-                ttsHy.save('./lib/media/tts/resHy.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resHy.mp3', id)
-                })
-            } else if (dataBhs == 'ca') {
-                ttsCa.save('./lib/media/tts/resCa.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resCa.mp3', id)
-                })
-            } else if (dataBhs == 'zh') {
-                ttsZh.save('./lib/media/tts/resZh.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resZh.mp3', id)
-                })		
-            } else if (dataBhs == 'cn') {
-                ttsCn.save('./lib/media/tts/resCn.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resCn.mp3', id)
-                })
-            } else if (dataBhs == 'tw') {
-                ttsTw.save('./lib/media/tts/resTw.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resTw.mp3', id)
-                })
-            } else if (dataBhs == 'yu') {
-                ttsYu.save('./lib/media/tts/resYue.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resYue.mp3', id)
-                })
-			} else if (dataBhs == 'hr') {
-                ttsHr.save('./lib/media/tts/resHr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resHr.mp3', id)
-                })
-            } else if (dataBhs == 'cs') {
-                ttsCs.save('./lib/media/tts/resCs.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resCs.mp3', id)
-                })
-            } else if (dataBhs == 'da') {
-                ttsDa.save('./lib/media/tts/resDa.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resDa.mp3', id)
-                })
-            } else if (dataBhs == 'nl') {
-                ttsNl.save('./lib/media/tts/resNl.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resNl.mp3', id)
-                })
-            } else if (dataBhs == 'au') {
-                ttsAu.save('./lib/media/tts/resAu.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resAu.mp3', id)
-                })
-            } else if (dataBhs == 'uk') {
-                ttsUk.save('./lib/media/tts/resUk.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resUk.mp3', id)
-                })
-            } else if (dataBhs == 'us') {
-                ttsUs.save('./lib/media/tts/resUs.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resUs.mp3', id)
-                })
-            } else if (dataBhs == 'eo') {
-                ttsEo.save('./lib/media/tts/resEo.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resEo.mp3', id)
-                })
-            } else if (dataBhs == 'fi') {
-                ttsFi.save('./lib/media/tts/resFi.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resFi.mp3', id)
-                })
-            } else if (dataBhs == 'fr') {
-                ttsFr.save('./lib/media/tts/resFr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resFr.mp3', id)
-                })
-            } else if (dataBhs == 'el') {
-                ttsEl.save('./lib/media/tts/resEl.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resEl.mp3', id)
-                })
-            } else if (dataBhs == 'ht') {
-                ttsHt.save('./lib/media/tts/resJp.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resHt.mp3', id)
-                })
-            } else if (dataBhs == 'hi') {
-                ttsHi.save('./lib/media/tts/resHi.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resHi.mp3', id)
-                })
-            } else if (dataBhs == 'hu') {
-                ttsHu.save('./lib/media/tts/resHu.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resHu.mp3', id)
-                })
-            } else if (dataBhs == 'is') {
-                ttsIs.save('./lib/media/tts/resIs.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resIs.mp3', id)
-                })
-			} else if (dataBhs == 'it') {
-                ttsIt.save('./lib/media/tts/resIt.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resIt.mp3', id)
-                })
-            } else if (dataBhs == 'ko') {
-                ttsKo.save('./lib/media/tts/resKo.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resKo.mp3', id)
-                })
-            } else if (dataBhs == 'la') {
-                ttsLa.save('./lib/media/tts/resLa.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resLa.mp3', id)
-                })
-            } else if (dataBhs == 'lv') {
-                ttsLv.save('./lib/media/tts/resLv.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resLv.mp3', id)
-                })
-            } else if (dataBhs == 'mk') {
-                ttsMk.save('./lib/media/tts/resMk.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resMk.mp3', id)
-                })
-            } else if (dataBhs == 'no') {
-                ttsNo.save('./lib/media/tts/resNo.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resNo.mp3', id)
-                })
-            } else if (dataBhs == 'pl') {
-                ttsPl.save('./lib/media/tts/resPl.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resPl.mp3', id)
-                })		
-            } else if (dataBhs == 'ro') {
-                ttsRo.save('./lib/media/tts/resRo.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resRo.mp3', id)
-                })
-            } else if (dataBhs == 'sr') {
-                ttsSr.save('./lib/media/tts/resSr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSr.mp3', id)
-                })
-            } else if (dataBhs == 'sk') {
-                ttsSk.save('./lib/media/tts/resSk.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSk.mp3', id)
-                })
-			} else if (dataBhs == 'es') {
-                ttsEs.save('./lib/media/tts/resEs.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resEs.mp3', id)
-                })
-            } else if (dataBhs == 'sp') {
-                ttsSp.save('./lib/media/tts/resSp.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSp.mp3', id)
-                })
-            } else if (dataBhs == 'su') {
-                ttsSu.save('./lib/media/tts/resSu.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSu.mp3', id)
-                })
-            } else if (dataBhs == 'sw') {
-                ttsSw.save('./lib/media/tts/resSw.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSk.mp3', id)
-                })
-            } else if (dataBhs == 'sv') {
-                ttsSv.save('./lib/media/tts/resSv.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resSv.mp3', id)
-                })
-            } else if (dataBhs == 'ta') {
-                ttsTa.save('./lib/media/tts/resTa.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resTa.mp3', id)
-                })
-            } else if (dataBhs == 'tr') {
-                ttsTr.save('./lib/media/tts/resTr.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resTr.mp3', id)
-                })
-            } else if (dataBhs == 'vi') {
-                ttsVi.save('./lib/media/tts/resVi.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resVi.mp3', id)
-                })
-            } else if (dataBhs == 'cy') {
-                ttsCy.save('./lib/media/tts/resCy.mp3', dataText, function () {
-                    kill.sendPtt(from, './lib/media/tts/resCy.mp3', id)
-                })
-            } else {
-                kill.reply(from, `Hmm, '${body.slice(5, 7)}' no es un idioma compatible, para ver los idiomas compatibles, escriba */idiomas*.`, id)
-            }
+                if (dataText === '') return kill.reply(from, 'Y el texto..?', id)
+                try {
+                    ttsGB.save('./media/tts.mp3', dataText, function () {
+                    kill.sendPtt(from, './media/tts.mp3', id)
+                    })
+                } catch (err) {
+                    kill.reply(from, err, id)
+                }
             break
 
         case 'idiomas':
@@ -1849,11 +1601,11 @@ if (isMedia) {
 
 	    case 'add':
             if (!isGroupMsg) return kill.reply(from, 'Esta función solo se puede utilizar en grupos', id)
-            if (args.length === 1) return kill.reply(from, 'Para utilizar esta función, envíe el comando */Add* +52xxxxx', id)
+            if (args.length === 0) return kill.reply(from, 'Para utilizar esta función, envíe el comando */Add* +52xxxxx', id)
             if (!isGroupAdmins) return kill.reply(from, 'Este comando solo puede ser utilizado por administradores de grupo', id)
             if (!isBotGroupAdmins) return kill.reply(from, 'Este comando solo se puede usar cuando el bot se convierte en administrador', id)
             try {
-                await kill.addParticipant(from,`${orang}@c.us`)
+                await kill.addParticipant(from,`${args}@c.us`)
             } catch {
                 kill.reply(from, mess.error.Ad, id)
             }
