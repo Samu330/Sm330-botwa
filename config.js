@@ -75,14 +75,6 @@ module.exports = kconfig = async (kill, message) => {
         global.voterslistfile = 'poll_voters_Config_'+chat.id+'.json'
 	global.client = kill
         const isBlocked = blockNumber.includes(sender.id)
-	if (!mek.message) return
-			if (mek.key && mek.key.remoteJid == 'status@broadcast') return
-			if (mek.key.fromMe) return
-	    		global.prefix
-			global.blocked
-			const content = JSON.stringify(mek.message)
-			const from = mek.key.remoteJid
-			const type = Object.keys(mek.message)[0]
 		const isLeg = exsv.includes(chatId)
 		const mute = slce.includes(chatId)
 		const pvmte = slce.includes(sender.id)
