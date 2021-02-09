@@ -81,8 +81,8 @@ module.exports = kconfig = async (kill, message) => {
 	    		global.prefix
 			global.blocked
 			const content = JSON.stringify(mek.message)
-			const from = mek.key.remoteJid
-			const type = Object.keys(mek.message)[0]
+			const from2 = mek.key.remoteJid //no se declara, supongo que no pasa nada si lo cambio
+			const type2 = Object.keys(mek.message)[0]  //no se declara, supongo que no pasa nada si lo cambio
 		const isLeg = exsv.includes(chatId)
 		const mute = slce.includes(chatId)
 		const pvmte = slce.includes(sender.id)
